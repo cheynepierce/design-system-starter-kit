@@ -16,8 +16,24 @@
 -->
 {% block content %}
 
-<h2 class="slds-text-align--center slds-text-heading--large slds-m-around--large">
-  Hello Amazing Dreamforce Attendees!
-</h2>
+<div id="documentation"></div>
+
+<script src="https://documentation-app-developer-edition.na50.force.com/lightning/lightning.out.js"></script>
+
+<script>
+    $Lightning.use("c:ArticlesApp",    // name of the Lightning app
+        function() {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:Documentation", // top-level component of your app
+                { },                  // attributes to set on the component when created
+                "documentation",   // the DOM location to insert the component
+                function(cmp) {
+                    // callback when component is created and active on the page
+                }
+            );
+        },
+        'https://documentation-app-developer-edition.na50.force.com/'  // Community endpoint
+    );
+</script>
 
 {% endblock %}
